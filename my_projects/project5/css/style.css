@@ -1,0 +1,41 @@
+body {
+  background-color: #f8f9fa;
+}
+
+.hero {
+  background: url('../images/hero.jpg') no-repeat center center/cover;
+  color: white;
+  text-align: center;
+  padding: 120px 20px;
+  border-radius: 10px;
+}
+
+.sidebar {
+  min-height: 100vh;
+  background-color: #212529;
+  color: white;
+  padding: 1rem;
+}
+.sidebar a {
+  color: #adb5bd;
+  text-decoration: none;
+  display: block;
+  padding: 0.5rem 0;
+}
+.sidebar a:hover {
+  color: white;
+}
+
+.product-card img {
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+footer {
+  background-color: #212529;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}
