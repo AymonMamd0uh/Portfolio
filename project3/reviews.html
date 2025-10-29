@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodKo Reviews</title>
+    <style>
+        /* Base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            text-decoration: none;
+            list-style: none;
+        }
+
+        /* Reusable navigation bar styling */
+        .reviews-page {
+            min-height: 100vh;
+            background-color: #f7f7f7;
+            display: flex;
+            flex-direction: column;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 90%;
+            margin: auto;
+            padding: 20px 0;
+        }
+
+        .logo {
+            color: #e78f38;
+            font-size: 30px;
+            font-weight: 700;
+        }
+        
+        .logo:hover {
+            color: #333;
+        }
+
+        nav ul {
+            display: flex;
+            align-items: center;
+        }
+        
+        nav ul li {
+            margin: 0 20px;
+        }
+        
+        nav ul li a {
+            font-size: 15px;
+            color: #333;
+            text-transform: uppercase;
+            position: relative;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: #e78f38;
+            left: 0;
+            bottom: -5px;
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            color: #e78f38;
+        }
+        
+        nav ul li a:hover::after, nav ul li a.active::after {
+            width: 100%;
+        }
+
+        /* Login Button */
+        .btn {
+            background-color: #e78f38;
+            color: #fff;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #c77b2d;
+        }
+
+        /* Reviews Page Specific Styling */
+        .reviews-section {
+            padding: 80px 0;
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        .reviews-section h1 {
+            font-size: 45px;
+            color: #333;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .reviews-section h1::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background-color: #e78f38;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -15px;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .review-card {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .review-card .quote {
+            font-size: 20px;
+            color: #e78f38;
+            margin-bottom: 10px;
+        }
+
+        .review-card p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+        
+        .reviewer-info {
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+
+        .reviewer-info h4 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .reviewer-info .rating {
+            color: #e78f38;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 10px 5%;
+            }
+
+            nav ul {
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                margin-top: 15px;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .btn {
+                width: 100%;
+                margin-top: 15px;
+            }
+
+            .reviews-section h1 {
+                font-size: 35px;
+                margin-bottom: 40px;
+            }
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="reviews-page">
+        <nav>
+            <a href="#" class="logo">FoodKo</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="reviews.html" class="active">Reviews</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+            <button class="btn">Login</button>
+        </nav>
+        <div class="reviews-section">
+            <h1>What Our Customers Say</h1>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <span class="quote">"</span>
+                    <p>The best food delivery service I've ever used! The food arrived hot and fresh, and the delivery was incredibly fast. I highly recommend FoodKo to everyone!</p>
+                    <div class="reviewer-info">
+                        <h4>Jane Doe</h4>
+                        <span class="rating">★★★★★</span>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <span class="quote">"</span>
+                    <p>Ordering was so easy and the variety of restaurants is amazing. The burger I got was perfect. Will definitely be using this app again soon.</p>
+                    <div class="reviewer-info">
+                        <h4>John Smith</h4>
+                        <span class="rating">★★★★★</span>
+                    </div>
+                </div>
+                
+                <div class="review-card">
+                    <span class="quote">"</span>
+                    <p>Great service! The app is very user-friendly and the delivery driver was very professional. My order was correct and delicious.</p>
+                    <div class="reviewer-info">
+                        <h4>Emily White</h4>
+                        <span class="rating">★★★★★</span>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <span class="quote">"</span>
+                    <p>I was so impressed with the quality of the food and the speed of the delivery. FoodKo has become my go-to for ordering meals. Five stars!</p>
+                    <div class="reviewer-info">
+                        <h4>Chris Johnson</h4>
+                        <span class="rating">★★★★★</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
