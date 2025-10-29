@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodKo Blog</title>
+    <style>
+        /* Base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            text-decoration: none;
+            list-style: none;
+        }
+
+        /* Reusable navigation bar styling */
+        .blog-page {
+            min-height: 100vh;
+            background-color: #f7f7f7;
+            display: flex;
+            flex-direction: column;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 90%;
+            margin: auto;
+            padding: 20px 0;
+        }
+
+        .logo {
+            color: #e78f38;
+            font-size: 30px;
+            font-weight: 700;
+        }
+        
+        .logo:hover {
+            color: #333;
+        }
+
+        nav ul {
+            display: flex;
+            align-items: center;
+        }
+        
+        nav ul li {
+            margin: 0 20px;
+        }
+        
+        nav ul li a {
+            font-size: 15px;
+            color: #333;
+            text-transform: uppercase;
+            position: relative;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: #e78f38;
+            left: 0;
+            bottom: -5px;
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            color: #e78f38;
+        }
+        
+        nav ul li a:hover::after, nav ul li a.active::after {
+            width: 100%;
+        }
+
+        /* Login Button */
+        .btn {
+            background-color: #e78f38;
+            color: #fff;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #c77b2d;
+        }
+
+        /* Blog Page Specific Styling */
+        .blog-section {
+            padding: 80px 0;
+            flex-grow: 1;
+        }
+
+        .blog-container {
+            display: flex;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 40px;
+        }
+
+        .main-content {
+            flex: 3;
+        }
+
+        .main-content h1 {
+            font-size: 45px;
+            color: #333;
+            margin-bottom: 50px;
+            position: relative;
+            text-align: center;
+        }
+
+        .main-content h1::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background-color: #e78f38;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -15px;
+        }
+
+        .blog-post {
+            background-color: #fff;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .blog-post img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .post-content {
+            padding: 30px;
+        }
+
+        .post-content h2 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .post-meta {
+            font-size: 14px;
+            color: #999;
+            margin-bottom: 20px;
+        }
+
+        .post-meta a {
+            color: #e78f38;
+        }
+
+        .post-excerpt {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .read-more {
+            color: #e78f38;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .read-more:hover {
+            color: #c77b2d;
+        }
+
+        .sidebar {
+            flex: 1;
+            padding-top: 100px; /* Aligns with the main content header */
+        }
+
+        .sidebar-widget {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .sidebar-widget h3 {
+            font-size: 22px;
+            color: #333;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e78f38;
+            padding-bottom: 5px;
+        }
+
+        .sidebar-widget ul li {
+            padding: 8px 0;
+        }
+
+        .sidebar-widget ul li a {
+            color: #666;
+            transition: color 0.3s;
+        }
+
+        .sidebar-widget ul li a:hover {
+            color: #e78f38;
+        }
+
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 10px 5%;
+            }
+
+            nav ul {
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                margin-top: 15px;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .btn {
+                width: 100%;
+                margin-top: 15px;
+            }
+
+            .blog-container {
+                flex-direction: column;
+                width: 90%;
+            }
+            
+            .main-content h1 {
+                font-size: 35px;
+                margin-bottom: 40px;
+            }
+            
+            .sidebar {
+                padding-top: 0;
+            }
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="blog-page">
+        <nav>
+            <a href="#" class="logo">FoodKo</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="menu.html">Menu</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="blog.html" class="active">Blog</a></li>
+            </ul>
+            <button class="btn">Login</button>
+        </nav>
+        <div class="blog-section">
+            <div class="blog-container">
+                <div class="main-content">
+                    <h1>Latest FoodKo Stories</h1>
+                    
+                    <div class="blog-post">
+                        <img src="./images/pizza-pizza-filled-with-tomatoes-salami-olives.jpg" alt="Delicious homemade pizza">
+                        <div class="post-content">
+                            <h2>The Art of the Perfect Pizza at Home</h2>
+                            <p class="post-meta">Posted by <a href="#">Admin</a> on August 12, 2025</p>
+                            <p class="post-excerpt">Ever wondered what makes a pizza truly great? We're diving into the secrets of the perfect crust, the freshest toppings, and the ultimate sauce...</p>
+                            <a href="#" class="read-more">Read More &raquo;</a>
+                        </div>
+                    </div>
+                    
+                    <div class="blog-post">
+                        <img src="./images/salad-from-tomatoes-cucumber-red-onions-lettuce-leaves-healthy-summer-vitamin-menu-vegan-vegetable-food-vegetarian-dinner-table.jpg" alt="Healthy fresh salad">
+                        <div class="post-content">
+                            <h2>5 Healthy Salads You'll Love to Order</h2>
+                            <p class="post-meta">Posted by <a href="#">Admin</a> on August 10, 2025</p>
+                            <p class="post-excerpt">Eating healthy doesn't have to be boring. Discover our top five refreshing and delicious salads that are now available for delivery...</p>
+                            <a href="#" class="read-more">Read More &raquo;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar">
+                    <div class="sidebar-widget">
+                        <h3>Recent Posts</h3>
+                        <ul>
+                            <li><a href="#">The Art of the Perfect Pizza at Home</a></li>
+                            <li><a href="#">5 Healthy Salads You'll Love to Order</a></li>
+                            <li><a href="#">Behind the Scenes with Our Chefs</a></li>
+                            <li><a href="#">A Guide to Our New Vegan Menu</a></li>
+                        </ul>
+                    </div>
+                    <div class="sidebar-widget">
+                        <h3>Categories</h3>
+                        <ul>
+                            <li><a href="#">Recipes</a></li>
+                            <li><a href="#">Restaurant Spotlights</a></li>
+                            <li><a href="#">Healthy Eating</a></li>
+                            <li><a href="#">News & Updates</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
